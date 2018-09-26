@@ -2,7 +2,9 @@
   <div class="wrapper">
     <div class="container">
       <div class="tv_screen">
-        <div class="screen_inner"></div>
+        <div class="screen_inner">
+          <item-container fatherComponent="home"></item-container>
+        </div>
         <div class="screen_right">
           <div class="screen_sound">
             <ul>
@@ -13,9 +15,13 @@
         </div>
       </div>
       <div class="tv_control">
-        <div class="tv_little_btn">
-
-        </div>
+        <div class="control_btn"></div>
+        <ul class="control_ul">
+          <li @click="changeParam(resume)">个人资料</li>
+          <li @click="changeParam(skill)">掌握技能</li>
+          <li @click="changeParam(experi)">工作经历</li>
+          <li @click="changeParam(project)">个人项目</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -25,8 +31,18 @@
 import itemContainer from '../../component/itemContainer'
 export default {
   name: "home",
+  data () {
+    return {
+      fatherComponent: 'home'
+    }
+  },
   components: {
     itemContainer
+  },
+  methods: {
+    changeParam: function(val) {
+      this.fatherComponent = val
+    }
   }
 }
 </script>
@@ -93,4 +109,32 @@ export default {
         background: #fcd445
         border: .2rem solid #000
         border-radius: .48rem
+        padding: .2rem .36rem
+        .control_btn
+          width: .8rem
+          height: .8rem
+          background: #ec6b46
+          border: .2rem solid #000000
+          border-radius: 50%
+          margin-left: -0.2rem
+          cursor: pointer
+        .control_btn:hover
+          background: #cf5b3a
+        .control_ul li
+          display: block
+          -webkit-box-sizing: border-box
+          -moz-box-sizing: border-box
+          box-sizing: border-box
+          width: 100%
+          height: .64rem
+          line-height: .52rem
+          border: .06rem solid #000000
+          border-radius: .08rem
+          margin-top: .36rem
+          font-size: .22rem
+          text-align: center
+          background: #fff
+          cursor: pointer
+        .control_ul li:hover
+          background: #f7d6cd
 </style>

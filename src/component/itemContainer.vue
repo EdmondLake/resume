@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div>
+    <div v-if="fatherComponent === 'home'"></div>
+  </div>
 </template>
 
 <script>
