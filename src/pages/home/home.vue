@@ -3,7 +3,7 @@
     <div class="container">
       <div class="tv_screen">
         <div class="screen_inner">
-          <item-container fatherComponent="home"></item-container>
+          <item-container fatherComponent="personinfo"></item-container>
         </div>
         <div class="screen_right">
           <div class="screen_sound">
@@ -17,7 +17,7 @@
       <div class="tv_control">
         <div class="control_btn"></div>
         <ul class="control_ul">
-          <li @click="changeParam(resume)">个人资料</li>
+          <li @click="changeParam(personinfo)">个人资料</li>
           <li @click="changeParam(skill)">掌握技能</li>
           <li @click="changeParam(experi)">工作经历</li>
           <li @click="changeParam(project)">个人项目</li>
@@ -33,7 +33,7 @@ export default {
   name: "home",
   data () {
     return {
-      fatherComponent: 'home'
+      fatherComponent: 'personinfo'
     }
   },
   components: {
