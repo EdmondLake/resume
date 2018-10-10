@@ -3,7 +3,7 @@
     <div class="container">
       <div class="tv_screen">
         <div class="screen_inner">
-          <item-container fatherComponent="personinfo"></item-container>
+          <item-container fatherComponent="personinfo" :homeDetail="homeDetail"></item-container>
         </div>
         <div class="screen_right">
           <div class="screen_sound">
@@ -29,11 +29,13 @@
 
 <script>
 import itemContainer from '../../component/itemContainer'
+import axios from 'axios'
 export default {
   name: "home",
   data () {
     return {
-      fatherComponent: 'personinfo'
+      fatherComponent: 'personinfo',
+      homeDetail: []
     }
   },
   components: {
@@ -42,7 +44,21 @@ export default {
   methods: {
     changeParam: function(val) {
       this.fatherComponent = val
+    },
+    getHomeInfo () {
+      axios.get('/api/info.json')
+      .then(this.getHomeInfoSucc)
+    },
+    getHomeInfoSucc (res) {
+      res = res.data
+      if(res.ret && res.data){
+        const data = res.data
+        this.homeDetail = data.homeDetail
+      }
     }
+  },
+  mounted () {
+    this.getHomeInfo()
   }
 }
 </script>

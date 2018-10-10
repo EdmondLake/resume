@@ -5,6 +5,12 @@
         <div class="little_pic"></div>
       </div>
       <div class="my_name">熊典雯 / DianwenXiong</div>
+      <div class="detail">
+        <div v-for="item in homeDetail" :key="item.id">
+          <span class="iconfont">item.code</span>
+          <span>item.info</span>
+        </div>
+      </div>
 
     </div>
   </div>
@@ -13,7 +19,10 @@
 <script>
 export default {
   name: "itemcontainer",
-  props: ['fatherComponent']
+  props: [
+    'fatherComponent',
+    'homeDetail'
+  ]
 }
 </script>
 
