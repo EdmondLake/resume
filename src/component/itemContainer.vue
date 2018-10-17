@@ -3,30 +3,46 @@
     <div class="container">
       <div class="tv_screen">
         <div class="screen_inner">
-          <div v-if="fatherComponent === 'home'">
-            <div class="my_pic">
-              <div class="little_pic"></div>
+          <!--<div v-if="fatherComponent === 'home'">-->
+          <div class="my_pic slide-left">
+            <div class="little_pic"></div>
+          </div>
+          <div class="my_name slide-left">熊典雯 / DianwenXiong</div>
+          <div class="detail">
+            <!--<div v-for="item of homeDetail" :key="item.id">-->
+            <!--<span class="iconfont">{{item.code}}</span>-->
+            <!--<span>{{item.info}}</span>-->
+            <!--</div>-->
+            <div class="my_collage">
+              <span class="iconfont detail_icons">&#xe602;</span>
+              <span class="detail_info">南昌工程学院</span>
             </div>
-            <div class="my_name">熊典雯 / DianwenXiong</div>
-            <div class="detail">
-              <!--<div v-for="item of homeDetail" :key="item.id">-->
-              <!--<span class="iconfont">{{item.code}}</span>-->
-              <!--<span>{{item.info}}</span>-->
-              <!--</div>-->
-              <div class="my_collage">
-                <span class="iconfont detail_icons">&#xe602;</span>
-                <span class="detail_info">南昌工程学院</span>
-              </div>
-              <div class="my_educ">
-                <span class="iconfont detail_icons">&#xe663;</span>
-                <span class="detail_info">2016届本科毕业</span>
-              </div>
-              <div class="my_position">
-                <span class="iconfont icon detail_icons">&#xe608;</span>
-                <span class="detail_info">应聘前端工程师</span>
-              </div>
+            <div class="my_educ">
+              <span class="iconfont detail_icons">&#xe663;</span>
+              <span class="detail_info">2016届本科毕业</span>
+            </div>
+            <div class="my_position">
+              <span class="iconfont icon detail_icons">&#xe608;</span>
+              <span class="detail_info">应聘前端工程师</span>
             </div>
           </div>
+          <!--</div>-->
+          <!--<div v-if="fatherComponent === 'skill,experi,project'">里面放左边的固定的页面</div>-->
+          <!--<div v-if="fatherComponent === 'skill'">-->
+            <!--<div class="skill_container">-->
+              <!--<div class="short_item">html5</div>-->
+              <!--<div class="long_item">css3</div>-->
+              <!--<div class="long_item">HTML</div>-->
+              <!--<div class="short_item">CSS</div>-->
+              <!--<div class="half_item">JavaScript</div>-->
+              <!--<div class="half_item">jQuery</div>-->
+              <!--<div class="short_item">Ajax</div>-->
+              <!--<div class="long_item">Photoshop</div>-->
+              <!--<div class="full_item">Vue</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <div v-if="fatherComponent === 'experi'"></div>
+          <div v-if="fatherComponent === 'project'"></div>
         </div>
         <div class="screen_right">
           <div class="screen_sound">
@@ -42,8 +58,8 @@
         <div class="control_ul">
           <router-link to="/" class="control_li">个人资料</router-link>
           <router-link to="skill" class="control_li">掌握技能</router-link>
-          <router-link to="item" class="control_li">工作经历</router-link>
-          <router-link to="item" class="control_li">个人项目</router-link>
+          <router-link to="/experi" class="control_li">工作经历</router-link>
+          <router-link to="/project" class="control_li">个人项目</router-link>
         </div>
       </div>
     </div>
@@ -91,6 +107,7 @@ export default {
           border: .2rem solid #000
           border-radius: .48rem
           background: #fff
+          position: relative
           .my_pic
             width: 2.5rem
             height: 2.5rem
@@ -142,6 +159,40 @@ export default {
               display: block
               border: .04rem solid #040000
               padding: .12rem .26rem
+          .skill_container
+            position: absolute
+            top: .72rem
+            left: 3.28rem
+            display: flex
+            flex-wrap: wrap
+            width: 8rem
+            height: 6rem
+            padding-top: .8rem
+            padding-left: 1.6rem
+          .skill_container div
+            height: .6rem
+            line-height:.6rem
+            margin-right: .24rem
+            border: .04rem solid #040000
+            text-align: center
+            font-family: 'Mirrosoft Yahei'
+            font-size: .26rem
+            font-weight: 600
+            box-sizing: content-box
+            color: #333333
+          .short_item
+            width: 1.6rem
+          .long_item
+            width: 3rem
+          .half_item
+            width: 2.3rem
+            background: #ec6b46
+          .full_item
+            width: 4.92rem
+            background: #ec6b46
+
+
+
         .screen_right
           flex: 1
           padding: 2.4rem .26rem .5rem

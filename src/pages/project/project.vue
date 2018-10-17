@@ -1,14 +1,14 @@
 <template>
   <div>
-    <itemContainer father-component="skill"></itemContainer>
+    <itemContainer father-component="project"></itemContainer>
   </div>
 </template>
 
 <script>
 import itemContainer from '../../component/itemContainer'
 export default {
-  name: "skill",
-  components: {
+  name: "project",
+  component: {
     itemContainer
   }
 }

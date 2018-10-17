@@ -1,13 +1,14 @@
 <template>
   <div>
-    <itemContainer father-component="skill"></itemContainer>
+    <itemContainer father-component="experi"></itemContainer>
   </div>
 </template>
 
 <script>
 import itemContainer from '../../component/itemContainer'
 export default {
-  name: "skill",
+  name: "experi",
+
   components: {
     itemContainer
   }
