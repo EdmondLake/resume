@@ -6,7 +6,6 @@
 
 <script>
 import itemContainer from '../../component/itemContainer'
-import axios from 'axios'
 export default {
   name: "home",
   components: {

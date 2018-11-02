@@ -3,46 +3,108 @@
     <div class="container">
       <div class="tv_screen">
         <div class="screen_inner">
-          <!--<div v-if="fatherComponent === 'home'">-->
-          <div class="my_pic slide-left">
-            <div class="little_pic"></div>
-          </div>
-          <div class="my_name slide-left">熊典雯 / DianwenXiong</div>
-          <div class="detail">
-            <!--<div v-for="item of homeDetail" :key="item.id">-->
-            <!--<span class="iconfont">{{item.code}}</span>-->
-            <!--<span>{{item.info}}</span>-->
-            <!--</div>-->
-            <div class="my_collage">
-              <span class="iconfont detail_icons">&#xe602;</span>
-              <span class="detail_info">南昌工程学院</span>
+          <div v-if="fatherComponent === 'home'">
+            <div class="my_pic slide-left">
+              <div class="little_pic"></div>
             </div>
-            <div class="my_educ">
-              <span class="iconfont detail_icons">&#xe663;</span>
-              <span class="detail_info">2016届本科毕业</span>
-            </div>
-            <div class="my_position">
-              <span class="iconfont icon detail_icons">&#xe608;</span>
-              <span class="detail_info">应聘前端工程师</span>
+            <div class="my_name">熊典雯 / DianwenXiong</div>
+            <div class="detail">
+              <div class="my_collage">
+                <span class="iconfont detail_icons">&#xe602;</span>
+                <span class="detail_info">南昌工程学院</span>
+              </div>
+              <div class="my_educ">
+                <span class="iconfont detail_icons">&#xe663;</span>
+                <span class="detail_info">2016届本科毕业</span>
+              </div>
+              <div class="my_position">
+                <span class="iconfont icon detail_icons">&#xe608;</span>
+                <span class="detail_info">应聘前端工程师</span>
+              </div>
             </div>
           </div>
-          <!--</div>-->
-          <!--<div v-if="fatherComponent === 'skill,experi,project'">里面放左边的固定的页面</div>-->
-          <!--<div v-if="fatherComponent === 'skill'">-->
-            <!--<div class="skill_container">-->
-              <!--<div class="short_item">html5</div>-->
-              <!--<div class="long_item">css3</div>-->
-              <!--<div class="long_item">HTML</div>-->
-              <!--<div class="short_item">CSS</div>-->
-              <!--<div class="half_item">JavaScript</div>-->
-              <!--<div class="half_item">jQuery</div>-->
-              <!--<div class="short_item">Ajax</div>-->
-              <!--<div class="long_item">Photoshop</div>-->
-              <!--<div class="full_item">Vue</div>-->
-            <!--</div>-->
-          <!--</div>-->
-          <div v-if="fatherComponent === 'experi'"></div>
-          <div v-if="fatherComponent === 'project'"></div>
+          <div v-if="fatherComponent === 'skill'">
+            <div class="skill_container">
+              <div class="short_item">html5</div>
+              <div class="long_item">css3</div>
+              <div class="long_item">HTML</div>
+              <div class="short_item">CSS</div>
+              <div class="half_item">JavaScript</div>
+              <div class="half_item">jQuery</div>
+              <div class="short_item">Ajax</div>
+              <div class="long_item">Photoshop</div>
+              <div class="full_item">Vue</div>
+            </div>
+          </div>
+          <div v-if="fatherComponent === 'experi'">
+            <div class="experi_container">
+              <h3 class="my_compony">{{compony}}</h3>
+              <p class="my_worktime">{{workTime}}</p>
+              <div class="experi_item" v-for="item in workDetail">
+                <div class="item_detail">
+                  <div class="experi_item_left">
+                    <h4 class="my_position">{{item.position}}</h4>
+                    <p class="position_time">{{item.time}}</p>
+                  </div>
+                  <div class="experi_item_right">
+                    <ol v-for="item in item.detail">
+                      <li class="work_item">{{item}}</li>
+                    </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-if="fatherComponent === 'project'">
+            <div class="project_container">
+              <div class="project_item">
+                <div class="project_item_left">
+                  <img class="project_img" src="@/images/project_2.png" alt="">
+                </div>
+                <div class="project_item_right">
+                  <h3 class="project_title">
+                    <span class="iconfont">&#xe620;</span>
+                    去哪儿网APP
+                  </h3>
+                  <p class="item_link">
+                    <span class="iconfont icon_link">&#xe65f;</span>
+                    <a href="" class="project_link">项目地址</a>
+                  </p>
+                  <p class="item_link">
+                    <span class="iconfont icon_link">&#xe65f;</span>
+                    <a href="" class="project_link">预览链接</a>
+                  </p>
+                  <p class="project_item_intro">
+                    <span class="iconfont">&#xe645;</span>
+                    用VUE+webpack构建一个简单的答题H5
+                  </p>
+                </div>
+              </div>
+              <div class="project_item">
+                <div class="project_item_left" @click="showImg">
+                  <img class="project_img" src="@/images/project_2.png" alt="">
+                </div>
+                <div class="project_item_right">
+                  <h3 class="project_title">
+                    <span class="iconfont">&#xe620;</span>
+                    VUE答题H5
+                  </h3>
+                  <p class="item_link">
+                    <span class="iconfont icon_link">&#xe65f;</span>
+                    <a href="" class="project_link">项目地址</a>
+                  </p>
+                  <p class="item_link">
+                    <span class="iconfont icon_link">&#xe65f;</span>
+                    <a href="" class="project_link">预览链接</a>
+                  </p>
+                  <p class="project_item_intro">
+                    <span class="iconfont">&#xe645;</span>
+                    用VUE+webpack构建一个简单的答题H5
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="screen_right">
           <div class="screen_sound">
@@ -57,7 +119,7 @@
         <div class="control_btn"></div>
         <div class="control_ul">
           <router-link to="/" class="control_li">个人资料</router-link>
-          <router-link to="skill" class="control_li">掌握技能</router-link>
+          <router-link to="/skill" class="control_li">掌握技能</router-link>
           <router-link to="/experi" class="control_li">工作经历</router-link>
           <router-link to="/project" class="control_li">个人项目</router-link>
         </div>
@@ -67,12 +129,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: "itemcontainer",
+  name: "itemContainer",
   props: [
     'fatherComponent'
-    // 'homeDetail'
-  ]
+  ],
+  computed: mapState([
+    'compony',
+    'workTime',
+    'workDetail'
+  ])
 }
 </script>
 
@@ -160,15 +227,11 @@ export default {
               border: .04rem solid #040000
               padding: .12rem .26rem
           .skill_container
-            position: absolute
-            top: .72rem
-            left: 3.28rem
+            margin: 1.4rem auto
             display: flex
             flex-wrap: wrap
-            width: 8rem
-            height: 6rem
-            padding-top: .8rem
-            padding-left: 1.6rem
+            width: 9rem
+            height: 5rem
           .skill_container div
             height: .6rem
             line-height:.6rem
@@ -181,17 +244,76 @@ export default {
             box-sizing: content-box
             color: #333333
           .short_item
-            width: 1.6rem
-          .long_item
             width: 3rem
+          .long_item
+            width: 5rem
           .half_item
-            width: 2.3rem
+            width: 4rem
             background: #ec6b46
           .full_item
-            width: 4.92rem
+            width: 8.32rem
             background: #ec6b46
-
-
+          .experi_container
+            margin: .4rem auto
+            width: 9rem
+            .my_compony
+              color: #e35f3b
+              text-align: center
+              font-size: .3rem
+              line-height: .8rem
+              font-weight: 600
+            .my_worktime
+              font-size: .28rem
+              text-align: center
+            .experi_item
+              display: flex
+              margin-bottom: .3rem
+              margin-top: .3rem
+              line-height: .48rem
+              .experi_item_left
+                width: 2rem
+                float: left
+                margin-right: .2rem
+                .my_position
+                  color: #e27252
+                  font-weight: 400
+                .position_time
+                  font-size: .24rem
+              .experi_item_right
+                flex: 1
+                overflow: hidden
+                .work_item
+                  font-size: .24rem
+          .project_container
+            margin: .2rem auto
+            width: 10.4rem
+            .project_item
+              display: flex
+              padding-bottom: .2rem
+              padding-top: .2rem
+              border-bottom: 1px solid #e35f3b
+              .project_item_left
+                float: left
+                width: 4.6rem
+                cursor: pointer
+                margin-right: .4rem
+                .project_img
+                  width: 100%
+              .project_item_right
+                flex: 1
+                overflow: hidden
+                line-height: .6rem
+                .project_title
+                  font-size: .28rem
+                  font-weight: 600
+                  color: #e35f3b
+                .item_link
+                  color: #3360e2
+                  display: inline-block
+                  margin-left: .8rem
+                  .project_link
+                    color: blue
+                    text-decoration: underline
 
         .screen_right
           flex: 1

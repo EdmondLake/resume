@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="project_container">
     <itemContainer father-component="project"></itemContainer>
   </div>
 </template>
 
 <script>
-import itemContainer from '../../component/itemContainer'
-export default {
-  name: "project",
-  component: {
-    itemContainer
+  import itemContainer from '../../component/itemContainer'
+  export default {
+    name: "project",
+    components: {
+      itemContainer
+    }
   }
-}
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>

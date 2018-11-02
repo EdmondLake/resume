@@ -8,7 +8,6 @@
 import itemContainer from '../../component/itemContainer'
 export default {
   name: "experi",
-
   components: {
     itemContainer
   }
