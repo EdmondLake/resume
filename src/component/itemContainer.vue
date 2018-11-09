@@ -3,6 +3,12 @@
     <div class="container">
       <div class="tv_screen">
         <div class="screen_inner">
+          <transition name="move">
+            <div class="tv_blank" :show="show">
+              <div class="tv_blank_up" ref="blankUp"></div>
+              <div class="tv_blank_down" ref="blankDown"></div>
+            </div>
+          </transition>
           <div v-if="fatherComponent === 'home'">
             <div class="my_pic slide-left">
               <div class="little_pic"></div>
@@ -59,7 +65,7 @@
             <div class="project_container">
               <div class="project_item">
                 <div class="project_item_left">
-                  <img class="project_img" src="@/images/project_2.png" alt="">
+                  <img class="project_img" src="@/images/project_1.png" alt="">
                 </div>
                 <div class="project_item_right">
                   <h3 class="project_title">
@@ -68,20 +74,16 @@
                   </h3>
                   <p class="item_link">
                     <span class="iconfont icon_link">&#xe65f;</span>
-                    <a href="" class="project_link">项目地址</a>
-                  </p>
-                  <p class="item_link">
-                    <span class="iconfont icon_link">&#xe65f;</span>
-                    <a href="" class="project_link">预览链接</a>
+                    <a href="https://github.com/EdmondLake/travelAPP" class="project_link">项目地址</a>
                   </p>
                   <p class="project_item_intro">
                     <span class="iconfont">&#xe645;</span>
-                    用VUE+webpack构建一个简单的答题H5
+                    vue2.5+vue-router+webpack构建去哪儿网APP
                   </p>
                 </div>
               </div>
               <div class="project_item">
-                <div class="project_item_left" @click="showImg">
+                <div class="project_item_left">
                   <img class="project_img" src="@/images/project_2.png" alt="">
                 </div>
                 <div class="project_item_right">
@@ -91,11 +93,7 @@
                   </h3>
                   <p class="item_link">
                     <span class="iconfont icon_link">&#xe65f;</span>
-                    <a href="" class="project_link">项目地址</a>
-                  </p>
-                  <p class="item_link">
-                    <span class="iconfont icon_link">&#xe65f;</span>
-                    <a href="" class="project_link">预览链接</a>
+                    <a href="https://github.com/EdmondLake/Test-project" class="project_link">项目地址</a>
                   </p>
                   <p class="project_item_intro">
                     <span class="iconfont">&#xe645;</span>
@@ -112,11 +110,11 @@
               <li v-for="n in 12"></li>
             </ul>
           </div>
-          <div class="screen_btn"></div>
+          <div class="screen_btn" @click="tv_on_off"></div>
         </div>
       </div>
       <div class="tv_control">
-        <div class="control_btn"></div>
+        <div class="control_btn" @click="tv_on_off"></div>
         <div class="control_ul">
           <router-link to="/" class="control_li">个人资料</router-link>
           <router-link to="/skill" class="control_li">掌握技能</router-link>
@@ -139,7 +137,28 @@ export default {
     'compony',
     'workTime',
     'workDetail'
-  ])
+  ]),
+  data () {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    tv_on_off () {
+      this.show = !this.show
+      if (this.show) {
+        this.$refs.blankUp.style.transform = 'translateY(0%)'
+        this.$refs.blankUp.style.transition = 'all .6s'
+        this.$refs.blankDown.style.transform = 'translateY(0%)'
+        this.$refs.blankDown.style.transition = 'all .6s'
+      } else {
+        this.$refs.blankUp.style.transform = 'translateY(-100%)'
+        this.$refs.blankUp.style.transition = 'all .6s'
+        this.$refs.blankDown.style.transform = 'translateY(100%)'
+        this.$refs.blankDown.style.transition = 'all .6s'
+      }
+    }
+  }
 }
 </script>
 
@@ -175,6 +194,26 @@ export default {
           border-radius: .48rem
           background: #fff
           position: relative
+          .tv_blank
+            width: 12.2rem
+            height: 7.8rem
+            border: .2rem solid #000
+            border-radius: .48rem
+            position: absolute
+            top: -0.2rem
+            left: -0.2rem
+            z-index: 600
+            overflow: hidden
+            .tv_blank_up, .tv_blank_down
+              width: 100%
+              height: 50%
+              background: #333
+              border-radius: .02rem .02rem 0 0
+            .tv_blank_up
+              transform: translateY(-100%)
+            .tv_blank_down
+              border-radius: 0 0 .02rem .02rem
+              transform: translateY(100%)
           .my_pic
             width: 2.5rem
             height: 2.5rem
@@ -310,11 +349,10 @@ export default {
                 .item_link
                   color: #3360e2
                   display: inline-block
-                  margin-left: .8rem
+                  margin-left: .4rem
                   .project_link
                     color: blue
                     text-decoration: underline
-
         .screen_right
           flex: 1
           padding: 2.4rem .26rem .5rem
