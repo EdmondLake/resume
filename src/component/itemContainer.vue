@@ -11,7 +11,7 @@
           </transition>
           <div v-if="fatherComponent === 'home'">
             <div class="my_pic slide-left">
-              <div class="little_pic"></div>
+              <img src="../images/sprite-1.png" alt="" class="my_avatar">
             </div>
             <div class="my_name">熊典雯 / DianwenXiong</div>
             <div class="detail">
@@ -218,27 +218,11 @@ export default {
             width: 2.5rem
             height: 2.5rem
             margin: .2rem auto
-            background: url(../images/sprite-1.png) no-repeat 0 0
             border-radius: 50%
             border: 0.04rem solid #004000
-            position: relative
-            transition: all .8s
-            z-index: 30
-            .little_pic
-              width: 2.4rem
-              height: 2.4rem
-              position: absolute
-              top: 0
-              left: 0
-              border-radius: 50%
-              border: 0.04rem solid #004000
-              background: url(../images/sprite-1.png) no-repeat 0 -2.5rem
-              transform-origin: .24rem 50%
-              transform: rotate(0deg)
-              transition: all 0.8s
-            .little_pic:hover
-              transform: rotate(90deg)
-              transition: all 0.8s
+            overflow: hidden
+            .my_avatar
+              width: 100%
           .my_name
             font-size: .28rem
             font-family: Microsoft Yahei
