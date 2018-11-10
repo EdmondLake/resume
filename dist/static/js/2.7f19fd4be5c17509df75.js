@@ -1,0 +1,2 @@
+webpackJsonp([2],{"14S6":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={name:"project",components:{itemContainer:n("CbNj").a}},a={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",{staticClass:"project_container"},[t("itemContainer",{attrs:{"father-component":"project"}})],1)},staticRenderFns:[]};var i=n("VU/8")(r,a,!1,function(e){n("is94")},"data-v-60867a71",null);t.default=i.exports},is94:function(e,t){}});
+//# sourceMappingURL=2.7f19fd4be5c17509df75.js.map
